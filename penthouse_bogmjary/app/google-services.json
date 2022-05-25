@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "107946642938",
+    "project_id": "penthouse-bogmjary-d65e5",
+    "storage_bucket": "penthouse-bogmjary-d65e5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:107946642938:android:b4042e6b7fb4d14ddfe843",
+        "android_client_info": {
+          "package_name": "com.penthouse_bogmjary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "107946642938-hndf3kglhslni8h0g7ij7leoa7d8id8p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkMx9N0CFSNnONIgAyUDWhGEFfZIJrTUE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "107946642938-hndf3kglhslni8h0g7ij7leoa7d8id8p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
