@@ -49,6 +49,7 @@
         <EditText
             android:id ="@+id/login_view_pw"
             android:layout_width="300dp"
+            android:inputType="textPassword"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
@@ -69,7 +70,7 @@
             android:text="로그인"
             android:textSize="16dp"
             android:layout_gravity="center"
-            android:backgroundTint="#89a5ea"
+            android:backgroundTint="#9fc5e8"
             android:layout_marginTop="20dp">
         </Button>
 
@@ -99,7 +100,7 @@
             <TextView
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:textColor="#89a5ea"
+                android:textColor="#9fc5e8"
                 android:text="회원가입">
             </TextView>
         </LinearLayout>

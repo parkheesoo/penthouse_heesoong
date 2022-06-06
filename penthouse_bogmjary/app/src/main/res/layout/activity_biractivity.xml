@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BIRActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:background="@drawable/bottom_edge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="16dp">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:text="매물 정보 등록"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:layout_gravity="center" />
+
+        <Button
+            android:id="@+id/close_biractivity_btn"
+            android:layout_gravity="right"
+            android:layout_marginRight="20dp"
+            android:layout_width="20dp"
+            android:background="@drawable/closeicon"
+            android:layout_height="20dp">
+        </Button>
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/select_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.114">
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/btn_ripple"
+            android:text="월세"
+            android:textColor="@drawable/txt_color" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_jeonse_h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/btn_ripple"
+            android:text="반전세"
+            android:textColor="@drawable/txt_color" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_jeonse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/btn_ripple"
+            android:text="전세"
+            android:textColor="@drawable/txt_color" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/money_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.202">
+
+        <TextView
+            android:id="@+id/enter_fee"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:text="보증금/월세"
+            android:visibility="visible"
+            tools:layout_editor_absoluteX="42dp"
+            tools:layout_editor_absoluteY="268dp" />
+
+        <EditText
+            android:id="@+id/deposit"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:visibility="visible"></EditText>
+
+
+        <TextView
+            android:id="@+id/slash"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="/"
+            android:textSize="20dp"
+            android:visibility="visible"
+            tools:layout_editor_absoluteX="42dp"
+            tools:layout_editor_absoluteY="268dp" />
+
+        <EditText
+            android:id="@+id/monthly"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:visibility="visible"></EditText>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/manage_fee_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.293">
+
+        <TextView
+            android:id="@+id/manage_fee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="80dp"
+            android:text="관리비"
+            android:visibility="visible"
+            tools:layout_editor_absoluteX="46dp"
+            tools:layout_editor_absoluteY="217dp" />
+
+        <EditText
+            android:id="@+id/manage_fee_enter"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/managefee_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="만원"
+            android:visibility="visible"
+            tools:layout_editor_absoluteX="46dp"
+            tools:layout_editor_absoluteY="217dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/parking_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.399">
+
+        <TextView
+            android:id="@+id/parking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:text="주차"
+            android:visibility="visible"
+            tools:layout_editor_absoluteX="42dp"
+            tools:layout_editor_absoluteY="268dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_parking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/btn_ripple"
+            android:text="가능"
+            android:textColor="@drawable/txt_color"
+            android:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_noparking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_ripple"
+            android:text="불가능"
+            android:textColor="@drawable/txt_color"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pet_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499">
+
+        <TextView
+            android:id="@+id/pet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:text="애완동물"
+            android:visibility="visible"
+            tools:layout_editor_absoluteX="42dp"
+            tools:layout_editor_absoluteY="268dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_pet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/btn_ripple"
+            android:text="가능"
+            android:textColor="@drawable/txt_color"
+            android:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_nopet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_ripple"
+            android:text="불가능"
+            android:textColor="@drawable/txt_color"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ev_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.614">
+
+        <TextView
+            android:id="@+id/ev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:text="E/V"
+            android:visibility="visible"
+            tools:layout_editor_absoluteX="42dp"
+            tools:layout_editor_absoluteY="268dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_ev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/btn_ripple"
+            android:text="있음"
+            android:textColor="@drawable/txt_color"
+            android:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_noev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_ripple"
+            android:text="없음"
+            android:textColor="@drawable/txt_color"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/size_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.709">
+
+        <TextView
+            android:id="@+id/size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="80dp"
+            android:text="평수"
+            android:visibility="visible"
+            tools:layout_editor_absoluteX="46dp"
+            tools:layout_editor_absoluteY="217dp" />
+
+        <EditText
+            android:id="@+id/size_enter"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/size_s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="평"
+            android:visibility="visible"
+            tools:layout_editor_absoluteX="46dp"
+            tools:layout_editor_absoluteY="217dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/other_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.828">
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/other_input"
+            android:layout_width="331dp"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="565dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/something_special_tv"
+                android:layout_width="match_parent"
+                android:layout_height="67dp"
+                android:hint="특이사항" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/register_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.935">
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_disable"
+            android:textColor="@drawable/txt_color"
+            android:text="등록"
+            android:visibility="visible" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+

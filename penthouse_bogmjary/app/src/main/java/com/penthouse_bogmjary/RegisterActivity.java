@@ -12,15 +12,20 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
 public class RegisterActivity extends AppCompatActivity {
 
+    private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
     private static final String TAG = "RegisterActivity";
     @Override
@@ -28,7 +33,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         mAuth = FirebaseAuth.getInstance();
-
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         EditText idEdit = (EditText) findViewById(R.id.login_et_id) ;
         EditText pwEdit = (EditText) findViewById(R.id.login_et_pw);
@@ -40,10 +45,10 @@ public class RegisterActivity extends AppCompatActivity {
         joinButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String id = idEdit.getText().toString().trim();
+                String email = idEdit.getText().toString().trim();
                 String pw = pwEdit.getText().toString().trim();
                 String pwCh= pwChEdit.getText().toString().trim();
-                String email = eMailEdit.getText().toString().trim();
+                String pNumber = eMailEdit.getText().toString().trim();
                 String nickName = nickNameEdit.getText().toString().trim();
 
                 if(pw.equals(pwCh)){
@@ -51,7 +56,7 @@ public class RegisterActivity extends AppCompatActivity {
                     mDialog.setMessage("가입진행중 입니다...");
                     mDialog.show();
 
-                    mAuth.createUserWithEmailAndPassword(id, pw)
+                    mAuth.createUserWithEmailAndPassword(email, pw)
                             .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>()  {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
@@ -59,8 +64,15 @@ public class RegisterActivity extends AppCompatActivity {
                                         mDialog.dismiss();
 
                                         FirebaseUser user = mAuth.getCurrentUser();
-                                        String idId = user.getEmail();
+                                        String idEmail = user.getEmail();
                                         String uid = user.getUid();
+
+                                        HashMap userInfo = new HashMap<>();
+                                        userInfo.put("e-mail", email);
+                                        userInfo.put("phone-number", pNumber);
+                                        userInfo.put("nick-name",nickName);
+
+                                        writeUser(uid, email, pNumber, nickName);
 
                                         Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                                         startActivity(intent);
@@ -80,6 +92,25 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void writeUser(String uid, String email, String pnumber, String nickname) {
+        User user = new User(email, pnumber,nickname);
+
+        //데이터 저장
+        mDatabase.child("users").child(uid).setValue(user)
+                .addOnSuccessListener(new OnSuccessListener<Void>() { //데이터베이스에 넘어간 이후 처리
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(getApplicationContext(),"저장을 완료했습니다", Toast.LENGTH_LONG).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getApplicationContext(),"저장에 실패했습니다" , Toast.LENGTH_LONG).show();
+                    }
+                });
     }
 
 }

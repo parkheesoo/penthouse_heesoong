@@ -1,0 +1,862 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FeeActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:background="@drawable/bottom_edge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="16dp">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:text="공과금 계산"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:layout_gravity="center" />
+
+        <Button
+            android:id="@+id/close_feeactivity_btn"
+            android:layout_gravity="right"
+            android:layout_marginRight="20dp"
+            android:layout_width="20dp"
+            android:background="@drawable/closeicon"
+            android:layout_height="20dp">
+        </Button>
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="670dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.918"
+        tools:layout_editor_absoluteX="16dp">
+
+        <LinearLayout
+            android:id="@+id/select_tap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.061">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="73dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                app:srcCompat="@drawable/turtle_green"
+                tools:layout_editor_absoluteX="97dp"
+                tools:layout_editor_absoluteY="541dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_elec"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/btn_ripple"
+                android:text="전기"
+                android:textColor="@drawable/txt_color" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_gas"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/btn_ripple"
+                android:text="가스"
+                android:textColor="@drawable/txt_color" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_water"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/btn_ripple"
+                android:text="수도"
+                android:textColor="@drawable/txt_color" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_cal"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_ripple"
+                android:text="계산"
+                android:textColor="@drawable/txt_color" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/manage_include_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.202">
+
+            <TextView
+                android:id="@+id/manage_include"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:text="관리비 포함"
+                android:visibility="gone"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="268dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_include"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/btn_ripple"
+                android:text="포함"
+                android:textColor="@drawable/txt_color"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_exclude"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_ripple"
+                android:text="불포함"
+                android:textColor="@drawable/txt_color"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/usage_before_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.33">
+
+            <TextView
+                android:id="@+id/usage_before"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:text="이전 사용량"
+                android:visibility="gone"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="268dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_exist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/btn_ripple"
+                android:text="있음"
+                android:textColor="@drawable/txt_color"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_exist_n"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_ripple"
+                android:text="없음"
+                android:textColor="@drawable/txt_color"
+                android:visibility="gone" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/usage_new_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.737">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/usage_new_input"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                tools:layout_editor_absoluteX="1dp"
+                tools:layout_editor_absoluteY="527dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="새로운 집 평균" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:id="@+id/usage_new_won"
+                android:layout_width="41dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="10dp"
+                android:text="원"
+                android:textSize="20dp"
+                android:visibility="gone"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="268dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/calculate_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.935">
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_calculate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_disable"
+                android:text="계산"
+                android:textColor="@color/white"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/usage_new_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.594">
+
+            <TextView
+                android:id="@+id/usage_new"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:text="이사갈 집 요금"
+                android:visibility="gone"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="268dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_know"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/btn_ripple"
+                android:text="안다"
+                android:textColor="@drawable/txt_color"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_dknow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_ripple"
+                android:text="모른다"
+                android:textColor="@drawable/txt_color"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/usage_before_check_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.461">
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_down"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/btn_ripple"
+                android:text="하위 30%"
+                android:textColor="@drawable/txt_color"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_avg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/btn_ripple"
+                android:text="평균"
+                android:textColor="@drawable/txt_color"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_ripple"
+                android:text="상위 30%"
+                android:textColor="@drawable/txt_color"
+                android:visibility="gone" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/usage_before_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.465">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/usage_before_input"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+
+                tools:layout_editor_absoluteX="1dp"
+                tools:layout_editor_absoluteY="527dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="이전사용량 평균" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:id="@+id/usage_before_won"
+                android:layout_width="41dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="10dp"
+                android:text="원"
+                android:textSize="20dp"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="268dp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/manage_include_layout_water"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.202">
+
+            <TextView
+                android:id="@+id/manage_include_water"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:text="관리비 포함"
+                android:visibility="gone"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="268dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_include_water"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/btn_ripple"
+                android:text="포함"
+                android:textColor="@drawable/txt_color"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_exclude_water"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_ripple"
+                android:text="불포함"
+                android:textColor="@drawable/txt_color"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/number_person_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.33">
+
+            <TextView
+                android:id="@+id/number_person"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="20dp"
+                android:text="가구원수"
+                android:visibility="gone"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="268dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/btn_ripple"
+                android:text="1인"
+                android:textColor="@drawable/txt_color"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/btn_ripple"
+                android:text="2인"
+                android:textColor="@drawable/txt_color"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_ripple"
+                android:text="3인"
+                android:textColor="@drawable/txt_color"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/elec_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.196">
+
+            <TextView
+                android:id="@+id/fee_elec"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/bmhanna_air_ttf"
+                android:text="전기세(단위 : 원)"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:visibility="gone"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="268dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/elec_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.289">
+
+            <TextView
+                android:id="@+id/elec_y"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/bmhanna_air_ttf"
+                android:text="평균"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:visibility="gone"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="268dp" />
+
+            <TextView
+                android:id="@+id/elec_y_r"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:visibility="gone"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="268dp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/elec_result2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.343">
+
+
+            <TextView
+                android:id="@+id/elec_s"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/bmhanna_air_ttf"
+                android:text="하절기"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:visibility="gone"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="268dp" />
+
+            <TextView
+                android:id="@+id/elec_s_r"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:visibility="gone"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="268dp" />
+
+            <TextView
+                android:id="@+id/elec_w"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/bmhanna_air_ttf"
+                android:text="동절기"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:visibility="gone"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="268dp" />
+
+            <TextView
+                android:id="@+id/elec_w_r"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:visibility="gone"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="268dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/gas_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.447">
+
+            <TextView
+                android:id="@+id/fee_gas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/bmhanna_air_ttf"
+                android:text="가스비(단위 : 원)"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:visibility="gone"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="268dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/gas_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.531">
+
+            <TextView
+                android:id="@+id/gas_y"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/bmhanna_air_ttf"
+                android:text="평균"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:visibility="gone"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="268dp" />
+
+            <TextView
+                android:id="@+id/gas_y_r"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:visibility="gone"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="268dp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/water_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.705">
+
+            <TextView
+                android:id="@+id/fee_water"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/bmhanna_air_ttf"
+                android:text="수도세(단위 : 원)"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:visibility="gone"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="268dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/gas_result2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.588">
+
+
+            <TextView
+                android:id="@+id/gas_s"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/bmhanna_air_ttf"
+                android:text="하절기"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:visibility="gone"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="268dp" />
+
+            <TextView
+                android:id="@+id/gas_s_r"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:visibility="gone"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="268dp" />
+
+            <TextView
+                android:id="@+id/gas_w"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/bmhanna_air_ttf"
+                android:text="동절기"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:visibility="gone"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="268dp" />
+
+            <TextView
+                android:id="@+id/gas_w_r"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:visibility="gone"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="268dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/water_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.779">
+
+            <TextView
+                android:id="@+id/water_y"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/bmhanna_air_ttf"
+                android:text="평균"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:visibility="gone"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="268dp" />
+
+            <TextView
+                android:id="@+id/water_y_r"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:visibility="gone"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="268dp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/save_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.935">
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_disable"
+                android:text="저장"
+                android:textColor="@color/white"
+                android:visibility="gone" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+

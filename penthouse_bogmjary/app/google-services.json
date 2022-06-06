@@ -15,7 +15,11 @@
       "oauth_client": [
         {
           "client_id": "107946642938-hndf3kglhslni8h0g7ij7leoa7d8id8p.apps.googleusercontent.com",
-          "client_type": 3
+          "client_type": 3,
+          "android_info": {
+            "package_name": "com.penthouse_bogmjary",
+            "certificate_hash": "I7FiRXmLguNIgmRZEUfzBWJBqMM="
+          }
         }
       ],
       "api_key": [

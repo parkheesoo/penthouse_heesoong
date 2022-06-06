@@ -3,14 +3,17 @@ package com.penthouse_bogmjary;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FolderFragment#newInstance} factory method to
+ * Use the {@link BookmarkFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class FolderFragment extends Fragment {
@@ -34,7 +37,7 @@ public class FolderFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FolderFragment.
+     * @return A new instance of fragment BookmarkFragment.
      */
     // TODO: Rename and change types and number of parameters
     public static FolderFragment newInstance(String param1, String param2) {
@@ -58,7 +61,33 @@ public class FolderFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_folder, container, false);
+        View v = inflater.inflate(R.layout.fragment_folder, container, false);
+        RecyclerView rv_user_list = v.findViewById(R.id.rv_user_list);
+        RecordAdapter rvAdapter = new RecordAdapter(getSamplelist());
+        rv_user_list.setAdapter(rvAdapter);
+
+        return v;
+    }
+
+    private ArrayList<FolderData> getSamplelist(){
+        ArrayList<FolderData> lstUserData = new ArrayList<>();
+        for(int i = 0;i < 3; i++){
+            if(i == 1){
+                FolderData folderData = new FolderData();
+                folderData.setBuildingAddress("서울 동작구 상도로 47바길 48");
+                lstUserData.add(folderData);
+            }
+            else if(i==2){
+                FolderData folderData = new FolderData();
+                folderData.setBuildingAddress("서울 상도1동 647-1");
+                lstUserData.add(folderData);
+            }else{
+                FolderData folderData = new FolderData();
+                folderData.setBuildingAddress("서울특별시 관악구 신림동 신림동길 6");
+                lstUserData.add(folderData);
+            }
+
+        }
+        return lstUserData;
     }
 }

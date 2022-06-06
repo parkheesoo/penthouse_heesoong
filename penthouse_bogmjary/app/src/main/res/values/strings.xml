@@ -1,5 +1,26 @@
 <resources>
     <string name="app_name">penthouse_bogmjary</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="daummap_key">01046da23ab2faa6e588df81620e45bd</string>
+    // 네이티브
+    <string name="restapi_key">KakaoAK 65309abae915907d0c7880520b87a1fb</string>
+    // REST API
+    <string name="open">Open navigation drawer</string>
+    <string name="month">월</string>
+    <string name="closed">Close navigation drawer</string>
+    <string name="height_per_floor">층 당 높이(미터)</string>
+    <string name="opt_lattitude">위도(남위는 (-) 붙여주세요, ex) -34)</string>
+    <string name="opt_longitude">경도(동경은 (-) 붙여주세요), ex) -127)</string>
+    <string name="open_save">저장/불러오기</string>
+    <string name="pic">사진 불러오기</string>
+    <string name="simulation">시뮬레이션</string>
+    <string name="delete">지우기</string>
+    <string name="sunscore">확인하신 3D모델을 바탕으로 해당 집의\n 일조량 점수를\n등록해주세요!</string>
+    <string name="save">저장</string>
+    <string name="description">사진을 불러와 그리거나 직접 그리세요.</string>
+    <string name="description1">이미지 위쪽이 정북쪽이어야 합니다.</string>
+    <string name="help_double">열기 - 더블 클릭</string>
+    <string name="permission_1">[설정] > [권한] 에서 권한을 허용할 수 있습니다.</string>
+    <string name="permission_2">맵사용을 위해 위치정보 이용 권한이 필요합니다.</string>
+    <string name="input">입력(필수)</string>
+    <string name="length">길이(미터)</string>
 </resources>

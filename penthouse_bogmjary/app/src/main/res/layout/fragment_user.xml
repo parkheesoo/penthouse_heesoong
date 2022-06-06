@@ -1,14 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UserFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.209"
+        tools:layout_editor_absoluteX="0dp">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginLeft="50dp"
+            android:src="@drawable/userstandicon"></ImageView>
+
+        <LinearLayout
+            android:layout_width="230dp"
+            android:layout_height="120dp"
+            android:orientation="vertical"
+            android:weightSum="3">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/nickname_tv"
+                android:fontFamily="@font/bmhanna_air_ttf"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="aaa"
+                android:textColor="#000000"
+                android:textSize="17dp"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:id="@+id/phoneNum_tv"
+                android:fontFamily="@font/bmhanna_air_ttf"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="qkrgmltn1357@naver.com"
+                android:textColor="#000000"
+                android:textSize="17dp"
+                android:textStyle="bold"></TextView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_user_notification"
+        android:layout_width="93dp"
+        android:layout_height="94dp"
+        android:background="@drawable/user_button"
+        android:drawableTop="@drawable/ic_baseline_notifications_none_48"
+        android:paddingTop="10dp"
+        android:text="알림함"
+        android:fontFamily="@font/bmhanna_air_ttf"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_user_user"
+        android:layout_width="93dp"
+        android:layout_height="94dp"
+        android:background="@drawable/user_button"
+        android:drawableTop="@drawable/ic_baseline_event_note_48"
+        android:paddingTop="10dp"
+        android:text="내가쓴글보기"
+        android:fontFamily="@font/bmhanna_air_ttf"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_user_write"
+        android:layout_width="93dp"
+        android:layout_height="94dp"
+        android:background="@drawable/user_button"
+        android:drawableTop="@drawable/ic_baseline_person_48"
+        android:paddingTop="10dp"
+        android:text="내정보 관리"
+        android:fontFamily="@font/bmhanna_air_ttf"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.861"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_user_notice"
+        android:layout_width="93dp"
+        android:layout_height="94dp"
+        android:background="@drawable/user_button"
+        android:drawableTop="@drawable/ic_baseline_error_outline_48"
+        android:paddingTop="10dp"
+        android:text="공지사항"
+        android:fontFamily="@font/bmhanna_air_ttf"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.723"
+        app:layout_constraintLeft_toLeftOf="@id/button_user_setting"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.731" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_user_setting"
+        android:layout_width="93dp"
+        android:layout_height="94dp"
+        android:background="@drawable/user_button"
+        android:drawableTop="@drawable/ic_baseline_settings_48"
+        android:paddingTop="10dp"
+        android:text="환경설정"
+        android:fontFamily="@font/bmhanna_air_ttf"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.731" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_user_call"
+        android:layout_width="93dp"
+        android:layout_height="94dp"
+        android:background="@drawable/user_button"
+        android:drawableTop="@drawable/ic_baseline_call_48"
+        android:paddingTop="10dp"
+        android:text="고객센터"
+        android:fontFamily="@font/bmhanna_air_ttf"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.301"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/button_user_setting"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.731" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

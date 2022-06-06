@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ScoreResultTwoActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:background="@drawable/bottom_edge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="16dp">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:text="이 집의 점수는?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:layout_gravity="center" />
+
+        <Button
+            android:id="@+id/close_scoreresultactivity_btn"
+            android:layout_gravity="right"
+            android:layout_marginRight="20dp"
+            android:layout_width="20dp"
+            android:background="@drawable/closeicon"
+            android:layout_height="20dp">
+        </Button>
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/bmhanna_air_ttf"
+        android:text="지금 보고 있는 매물은"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.107"></TextView>
+
+
+    <TextView
+        android:id="@+id/current_address_tv_score_result_two"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:background="@drawable/round_border"
+        android:fontFamily="@font/bmhanna_air_ttf"
+        android:gravity="center"
+        android:text="지금보고 있는 집의 주소"
+        android:textColor="#000000"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.037">
+    </TextView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/current_address_tv_score_result_two"
+        app:layout_constraintVertical_bias="0.06"
+        tools:layout_editor_absoluteX="30dp">
+
+        <TextView
+            android:id="@+id/first_info_tv"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="1번째 줄입니다."
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="15dp"></TextView>
+
+        <TextView
+            android:id="@+id/second_info_tv"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="2번째 줄입니다."
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="15dp"></TextView>
+
+        <TextView
+            android:id="@+id/third_info_tv"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="3번째 줄입니다."
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="15dp"></TextView>
+
+        <TextView
+            android:id="@+id/fourth_info_tv"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="4번째 줄입니다."
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="15dp"></TextView>
+    </LinearLayout>
+
+    <org.eazegraph.lib.charts.BarChart
+        android:id="@+id/barchart"
+        android:layout_width="match_parent"
+        android:layout_height="256dp"
+        android:padding="10dp"
+        app:egBarWidth="30dp"
+        app:egFixedBarWidth="true"
+        app:egLegendHeight="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout10"
+        tools:layout_editor_absoluteX="0dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
